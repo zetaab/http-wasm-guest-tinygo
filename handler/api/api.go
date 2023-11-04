@@ -1,6 +1,9 @@
 package api
 
-import "io"
+import (
+	"io"
+	"net/http"
+)
 
 // LogLevel controls the volume of logging. The lower the number the more
 // detail is logged.
@@ -36,6 +39,8 @@ type Host interface {
 
 	// GetConfig reads any configuration set by the host.
 	GetConfig() []byte
+
+	HTTPRequest(method string, uri string, body string) (*http.Response, error)
 
 	// LogEnabled returns true if the LogLevel is enabled. This value may
 	// be cached at request granularity.

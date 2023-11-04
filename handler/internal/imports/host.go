@@ -182,3 +182,7 @@ func SetStatusCode(statusCode uint32) {
 func GetSourceAddr(ptr uint32, limit BufLimit) (len uint32) {
 	return getSourceAddr(ptr, limit)
 }
+
+func HTTPRequest(ptr uint32, limit BufLimit, method uint32, methodLen BufLimit, uri uint32, uriLen BufLimit, body uint32, bodyLen BufLimit, ptr2 uint32, limit2 BufLimit) (response uint32) {
+	return httpRequest(ptr, limit, method, methodLen, uri, uriLen, body, bodyLen, ptr2, limit2)
+}
